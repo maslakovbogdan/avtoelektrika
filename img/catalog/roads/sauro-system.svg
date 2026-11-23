@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="386" viewBox="0 0 840 386" role="img" aria-labelledby="name">
+  <title id="name">Связи блока САУРО ИБКС.20.00.000 с датчиками и гидравликой рабочего органа</title>
+  <rect x="1" y="1" width="838" height="384" rx="18" fill="#eff3f2" stroke="#cbd5d3"/>
+  <g fill="#486065" font-family="Arial,sans-serif" font-size="17" font-weight="bold">
+    <text x="38" y="49">Датчики</text>
+    <text x="319" y="49">Блок управления</text>
+    <text x="637" y="49">Гидропривод</text>
+  </g>
+  <g fill="none" stroke="#738e8e" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M225 109H265V195H306 M225 194H265 M225 281H265V195"/>
+    <path d="M559 195H597V153H624 M597 195V239H624"/>
+  </g>
+  <g fill="#738e8e"><path d="m306 190 8 5-8 5z M624 148l8 5-8 5z M624 234l8 5-8 5z"/></g>
+  <g fill="#fff" stroke="#a9bcb9" stroke-width="1.5">
+    <rect x="35" y="73" width="190" height="71" rx="7"/><rect x="35" y="159" width="190" height="71" rx="7"/><rect x="35" y="246" width="190" height="71" rx="7"/>
+    <rect x="633" y="118" width="172" height="70" rx="7"/><rect x="633" y="204" width="172" height="70" rx="7"/>
+  </g>
+  <g fill="#213d41" font-family="Arial,sans-serif" font-size="20" font-weight="bold">
+    <text x="52" y="103">ДУХ-2</text><text x="52" y="189">ДВХЛ-2</text><text x="52" y="276">ДВХП-2</text>
+  </g>
+  <g fill="#4a6467" font-family="Arial,sans-serif" font-size="17">
+    <text x="52" y="126">Угол наклона</text><text x="52" y="212">Высота слева</text><text x="52" y="299">Высота справа</text>
+    <text x="648" y="150">Левый</text><text x="648" y="173">гидроцилиндр</text>
+    <text x="648" y="236">Правый</text><text x="648" y="259">гидроцилиндр</text>
+  </g>
+  <rect x="316" y="93" width="243" height="205" rx="12" fill="#344c50"/>
+  <g font-family="Arial,sans-serif" fill="#fff"><text x="333" y="132" font-size="26" font-weight="bold">САУРО</text><text x="333" y="156" font-size="17" fill="#d2e0dc">ИБКС.20.00.000</text></g>
+  <g fill="#dce8df"><rect x="333" y="179" width="209" height="42" rx="4"/><rect x="333" y="231" width="209" height="42" rx="4"/></g>
+  <g fill="#294947" font-family="Arial,sans-serif" font-size="17"><text x="345" y="206">А1 · Индикация</text><text x="345" y="258">А2 · Вычислитель</text></g>
+</svg>

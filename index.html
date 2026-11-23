@@ -13,6 +13,30 @@
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="industries.css">
+  <link rel="stylesheet" href="catalog.css">
+  <script src="catalog-mining.js" defer></script>
+  <script src="catalog-forestry.js" defer></script>
+  <script src="catalog-roads.js" defer></script>
+  <script src="catalog-lineups.js" defer></script>
+  <script src="catalog-owen.js" defer></script>
+  <script src="catalog-logmate.js" defer></script>
+  <script src="catalog-simatic.js" defer></script>
+  <script src="catalog-herman.js" defer></script>
+  <script src="catalog-regul.js" defer></script>
+  <script src="catalog-emikon.js" defer></script>
+  <script src="catalog-rockwell.js" defer></script>
+  <script src="catalog-forest-units.js" defer></script>
+  <script src="catalog-forest-cabins.js" defer></script>
+  <script src="catalog-road-instruments.js" defer></script>
+  <script src="catalog-road-controls.js" defer></script>
+  <script src="catalog-panels.js" defer></script>
+  <script src="catalog-geometry.js" defer></script>
+  <script src="catalog-displays-forestry.js" defer></script>
+  <script src="catalog-displays-mining.js" defer></script>
+  <script src="catalog-displays-roads.js" defer></script>
+  <script src="catalog-studio.js" defer></script>
+  <script src="catalog-viewer.js" defer></script>
+  <script src="catalog.js" defer></script>
   <script src="industries.js" defer></script>
   <script src="script.js" defer></script>
   <script src="reviews.js" defer></script>
@@ -64,15 +88,15 @@
           </div>
         </div>
         <div class="industry-deck" role="group" aria-label="Отрасли ремонта">
-          <button type="button" class="industry-card industry-mining">
+          <button type="button" aria-haspopup="dialog" aria-controls="industry-detail" data-industry="mining" class="industry-card industry-mining">
             <span class="industry-emblem"><img src="icons/industry-mining.svg" alt="" draggable="false"></span>
             <span class="industry-label">Горная добыча и металлургия</span>
           </button>
-          <button type="button" class="industry-card industry-forestry">
+          <button type="button" aria-haspopup="dialog" aria-controls="industry-detail" data-industry="forestry" class="industry-card industry-forestry">
             <span class="industry-emblem"><img src="icons/industry-forestry.svg" alt="" draggable="false"></span>
             <span class="industry-label">Лесо&shy;заготовка</span>
           </button>
-          <button type="button" class="industry-card industry-roads">
+          <button type="button" aria-haspopup="dialog" aria-controls="industry-detail" data-industry="roads" class="industry-card industry-roads">
             <span class="industry-emblem"><img src="icons/industry-roads.svg" alt="" draggable="false"></span>
             <span class="industry-label">Дорожное строительство</span>
           </button>
@@ -80,6 +104,60 @@
       </div>
       <span class="industry-anchor" id="uslugi" aria-hidden="true"></span>
     </section>
+
+    <dialog id="industry-detail" aria-labelledby="detail-heading">
+      <div class="detail-body">
+        <button class="detail-close" type="button" autofocus>
+          <svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Закрыть
+        </button>
+        <div class="detail-head">
+          <img class="detail-emblem" alt="" width="90" height="90">
+          <h2 id="detail-heading"></h2>
+        </div>
+        <section class="catalog" aria-labelledby="catalog-heading">
+          <div class="catalog-bar">
+            <h3 id="catalog-heading">Производители</h3>
+            <div class="catalog-controls">
+              <button type="button" class="catalog-prev" aria-label="Предыдущий производитель"><svg class="ico"><use href="#i-left"/></svg></button>
+              <button type="button" class="catalog-next" aria-label="Следующий производитель"><svg class="ico"><use href="#i-right"/></svg></button>
+            </div>
+          </div>
+          <p class="catalog-scope"></p>
+          <div class="catalog-rail" role="group" aria-labelledby="catalog-heading"></div>
+          <section class="lineup" id="brand-lineup" aria-labelledby="brand-name">
+            <header class="lineup-head">
+              <h4 id="brand-name"></h4>
+            </header>
+            <div class="lineup-grid">
+              <div class="lineup-list" role="group" aria-label="Выбор модели"></div>
+              <div class="lineup-stage">
+                <div class="viewer-heading"><h5 class="viewer-model"></h5></div>
+                <canvas class="block-viewer" tabindex="0"></canvas>
+                <div class="viewer-foot">
+                  <button class="viewer-details" type="button" aria-haspopup="dialog" aria-controls="block-detail">Ремонт и ПО</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </dialog>
+
+    <dialog id="block-detail" aria-labelledby="block-title" closedby="any">
+      <div class="block-sheet">
+        <button class="block-close" type="button" aria-label="Закрыть сведения о блоке" autofocus><svg class="ico"><use href="#i-x"/></svg></button>
+        <p class="block-maker"></p>
+        <h2 id="block-title"></h2>
+        <figure class="block-illustration" hidden>
+          <img class="block-photo" alt="">
+          <figcaption class="block-caption" hidden></figcaption>
+        </figure>
+        <p class="block-use"></p>
+        <div class="block-section"><h3>Диагностика и ремонт</h3><p class="block-repair"></p><p>Объём работ и стоимость согласуем после диагностики. После восстановления повторяем проверку, при которой проявлялся сбой.</p></div>
+        <div class="block-section"><h3>ПО и прошивка</h3><p class="block-tool"></p></div>
+        <div class="block-sources"></div>
+      </div>
+    </dialog>
 
     <section class="block block--white" id="remont">
       <div class="wrap">
