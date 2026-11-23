@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Автоэлектрика от А до Я — ремонт ДВС, PLC и ЭБУ техники в Иркутске</title>
-  <meta name="description" content="Ремонт ЭБУ, PLC-контроллеров, двигателей и проводки грузовой, строительной и сельхозтехники. Иркутск, выезд по всей России. Договор и безнал для организаций.">
+  <title>Автоэлектрика от А до Я — ремонт промышленной техники и программатики в Иркутске</title>
+  <meta name="description" content="Ремонт промышленной техники и программатики для горнодобывающих, металлургических, лесозаготовительных и дорожно-строительных предприятий. Иркутск, выезд по всей России. Договор и безнал для организаций.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#142139">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Автоэлектрика от А до Я — ремонт ДВС, PLC и ЭБУ техники">
-  <meta property="og:description" content="Ремонт блоков управления, контроллеров и двигателей грузовой, строительной и сельхозтехники. Иркутск, выезд по всей России.">
+  <meta property="og:title" content="Автоэлектрика от А до Я — ремонт промышленной техники и программатики">
+  <meta property="og:description" content="Ремонт промышленной техники и программатики. Иркутск, выезд по всей России.">
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="industries.css">
+  <script src="industries.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="reviews.js" defer></script>
   <script src="transition.js" defer></script>
 </head>
 <body>
@@ -32,10 +35,10 @@
     <div class="wrap top__inner">
       <a class="brand" href="#">
         <span class="brand__name">Автоэлектрика от А до Я</span>
-        <span class="brand__what">Ремонт электроники техники</span>
+        <span class="brand__what">Промышленный сервис</span>
       </a>
       <nav class="top__nav" aria-label="Разделы">
-        <a href="#uslugi">Услуги</a>
+        <a href="#uslugi">Отрасли</a>
         <a href="#remont">Как работаю</a>
         <a href="#organizaciyam">Организациям</a>
         <a href="#master">О мастере</a>
@@ -47,76 +50,35 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap hero__inner">
-        <div class="hero__text">
-          <h1>Ремонт ДВС, PLC и&nbsp;любых ЭБУ техники</h1>
-          <p class="hero__lead">Нахожу и устраняю неисправности в блоках управления, контроллерах и двигателях грузовой, строительной и сельхозтехники. Выезжаю к технике по всей России, с организациями работаю по договору.</p>
-          <div class="actions" id="hero-actions">
-            <a class="btn btn--main" href="tel:+79246224409"><svg class="ico"><use href="#i-phone"/></svg>Позвонить</a>
-            <a class="btn btn--line" href="https://t.me/avtoelektrika38" target="_blank" rel="noopener"><svg class="ico"><use href="#i-tg"/></svg>Telegram</a>
-            <a class="btn btn--line" href="https://max.ru/u/hz" target="_blank" rel="noopener"><svg class="ico"><use href="#i-max"/></svg>MAX</a>
+    <section id="industry-scene" aria-labelledby="industry-heading">
+      <div class="industry-viewport">
+        <div class="industry-intro">
+          <div class="industry-copy">
+            <h1 id="industry-heading"><span class="title-mask"><span>Ремонт</span></span> <span class="title-mask"><span>промышленной</span></span> <span class="title-mask"><span>техники</span></span> <span class="title-mask"><span>и</span></span> <span class="title-mask"><span>программатики</span></span></h1>
+            <p class="industry-lead">Диагностика и ремонт на объекте или в мастерской. Работаю с предприятиями по договору.</p>
+            <div class="actions" id="hero-actions">
+              <a class="btn btn--main" href="tel:+79246224409"><svg class="ico"><use href="#i-phone"/></svg>Позвонить</a>
+              <a class="btn btn--line" href="https://t.me/avtoelektrika38" target="_blank" rel="noopener"><svg class="ico"><use href="#i-tg"/></svg>Telegram</a>
+              <a class="btn btn--line" href="https://max.ru/u/hz" target="_blank" rel="noopener"><svg class="ico"><use href="#i-max"/></svg>MAX</a>
+            </div>
           </div>
         </div>
-
-        <aside class="plate" aria-label="Коротко о мастере">
-          <p class="plate__name">Валерий Воробьев</p>
-          <p class="plate__role">Мастер по ремонту электронных систем и двигателей техники</p>
-          <dl class="plate__rows">
-            <div><dt>Ремонтирую</dt><dd>ЭБУ, PLC, двигатели, проводку и <span class="nowrap">CAN-шину</span></dd></div>
-            <div><dt>Техника</dt><dd>Грузовая, строительная, сельхоз&shy;техника, спецтехника</dd></div>
-            <div><dt>Где</dt><dd>Иркутск, выезд по всей России по договорённости</dd></div>
-            <div><dt>Стаж</dt><dd>хз лет</dd></div>
-            <div><dt>Гарантия</dt><dd>хз месяцев</dd></div>
-            <div><dt>Оплата</dt><dd>хз</dd></div>
-            <div><dt>Телефон</dt><dd><a href="tel:+79246224409">+7 (924) 622-44-09</a></dd></div>
-          </dl>
-        </aside>
-      </div>
-    </section>
-
-    <section class="block" id="uslugi">
-      <div class="wrap">
-        <h2>Что ремонтирую</h2>
-        <div class="services">
-          <article class="service">
-            <h3 class="service__head"><span class="service__code">ЭБУ</span><span class="service__name">Электронные блоки управления</span></h3>
-            <p class="service__desc">Блоки двигателя, коробки передач, тормозной системы и другого оборудования любых производителей.</p>
-            <ul class="service__list">
-              <li>Диагностика и поиск неисправности на плате</li>
-              <li>Восстановление после замыкания, перенапряжения и влаги</li>
-              <li>Чтение и запись программы, адаптация к технике</li>
-            </ul>
-          </article>
-          <article class="service">
-            <h3 class="service__head"><span class="service__code">PLC</span><span class="service__name">Программируемые контроллеры</span></h3>
-            <p class="service__desc">Контроллеры гидравлики, навесного и промышленного оборудования.</p>
-            <ul class="service__list">
-              <li>Ремонт модулей питания, входов и выходов</li>
-              <li>Восстановление и перенос программы</li>
-              <li>Проверка с датчиками и исполнительными механизмами</li>
-            </ul>
-          </article>
-          <article class="service">
-            <h3 class="service__head"><span class="service__code">ДВС</span><span class="service__name">Двигатели</span></h3>
-            <p class="service__desc">Дизельные и бензиновые двигатели техники.</p>
-            <ul class="service__list">
-              <li>Компьютерная диагностика</li>
-              <li>Ремонт двигателя и его систем</li>
-              <li>Проверка после ремонта под нагрузкой</li>
-            </ul>
-          </article>
-          <article class="service">
-            <h3 class="service__head"><span class="service__code">CAN</span><span class="service__name">Электрика и связь между блоками</span></h3>
-            <p class="service__desc">Проводка, датчики, приборные панели и <span class="nowrap">CAN-шина</span>.</p>
-            <ul class="service__list">
-              <li>Поиск обрывов и замыканий в проводке</li>
-              <li>Восстановление связи между блоками по CAN</li>
-              <li>Замена и настройка датчиков</li>
-            </ul>
-          </article>
+        <div class="industry-deck" role="group" aria-label="Отрасли ремонта">
+          <button type="button" class="industry-card industry-mining">
+            <span class="industry-emblem"><img src="icons/industry-mining.svg" alt="" draggable="false"></span>
+            <span class="industry-label">Горная добыча и металлургия</span>
+          </button>
+          <button type="button" class="industry-card industry-forestry">
+            <span class="industry-emblem"><img src="icons/industry-forestry.svg" alt="" draggable="false"></span>
+            <span class="industry-label">Лесо&shy;заготовка</span>
+          </button>
+          <button type="button" class="industry-card industry-roads">
+            <span class="industry-emblem"><img src="icons/industry-roads.svg" alt="" draggable="false"></span>
+            <span class="industry-label">Дорожное строительство</span>
+          </button>
         </div>
       </div>
+      <span class="industry-anchor" id="uslugi" aria-hidden="true"></span>
     </section>
 
     <section class="block block--white" id="remont">
@@ -159,63 +121,66 @@
           <p class="about__name">Воробьев Валерий Валерьевич</p>
           <p>Ремонтирую электронику и двигатели техники с 20XX года. За каждый ремонт отвечаю лично.</p>
           <p>Работаю с техникой частных владельцев, фермерских хозяйств, строительных и транспортных компаний.</p>
-          <p>Бла бла лера накидай тут чета</p>
+          <p class="specialty"><strong>Специализация</strong>Ремонт ЭБУ, ДВС и PLC-контроллеров, диагностика проводки и CAN-шины.</p>
         </div>
       </div>
     </section>
 
-    <section class="block block--white" id="otzyvy">
-      <div class="wrap">
-        <h2>Отзывы</h2>
-        <div class="carousel">
-          <button class="carousel__btn" type="button" data-step="-1" aria-label="Предыдущий отзыв"><svg class="ico"><use href="#i-left"/></svg></button>
-          <div class="carousel__view">
-            <ul class="reviews" id="reviews">
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-1.svg" alt="Логотип компании" width="240" height="40">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-2.svg" alt="Логотип компании" width="257" height="45">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-3.svg" alt="Логотип компании" width="268" height="40">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-1.svg" alt="Логотип компании" width="240" height="40">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-2.svg" alt="Логотип компании" width="257" height="45">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            <li class="review">
-              <img class="review__logo" src="img/logos/placeholder-3.svg" alt="Логотип компании" width="268" height="40">
-              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
-                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
-              </div>
-              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
-            </li>
-            </ul>
+    <section class="testimonials" id="otzyvy" aria-labelledby="reviews-title">
+      <div class="testimonials__pin">
+        <div class="wrap testimonials__layout">
+          <div class="testimonials__intro">
+            <h2 id="reviews-title">Отзывы</h2>
+            <div class="testimonials__controls" hidden>
+              <button type="button" class="testimonials__arrow" data-step="-1" aria-controls="reviews" aria-label="Предыдущий отзыв"><svg class="ico" aria-hidden="true"><use href="#i-left"/></svg></button>
+              <span class="testimonials__position" aria-live="polite" aria-atomic="true"></span>
+              <button type="button" class="testimonials__arrow" data-step="1" aria-controls="reviews" aria-label="Следующий отзыв"><svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></button>
+            </div>
           </div>
-          <button class="carousel__btn" type="button" data-step="1" aria-label="Следующий отзыв"><svg class="ico"><use href="#i-right"/></svg></button>
+          <ul class="testimonials__feed" id="reviews">
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-1.svg" alt="Логотип компании" width="240" height="40">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-2.svg" alt="Логотип компании" width="257" height="45">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-3.svg" alt="Логотип компании" width="268" height="40">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-1.svg" alt="Логотип компании" width="240" height="40">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-2.svg" alt="Логотип компании" width="257" height="45">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+            <li class="review">
+              <img class="review__logo" src="img/logos/placeholder-3.svg" alt="Логотип компании" width="268" height="40">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5">
+                <svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg>
+              </div>
+              <p class="review__text">Хорошо выполнил работу бла бла бла, лера помоги</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -276,7 +241,7 @@
 
   <footer class="foot">
     <div class="wrap foot__inner">
-      <p>Автоэлектрика от А до Я, ремонт ДВС, PLC и ЭБУ техники</p>
+      <p>Автоэлектрика от А до Я, ремонт промышленной техники и программатики</p>
       <p>ИП Воробьев В. В., ИНН хз</p>
     </div>
   </footer>

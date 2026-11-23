@@ -8,46 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // On phones the call dock shows up once the hero buttons scroll away.
   const dock = document.querySelector(".dock");
   const heroActions = document.getElementById("hero-actions");
-  dock.toggleAttribute("data-away", true);
-  new IntersectionObserver(([entry]) => {
-    dock.toggleAttribute("data-away", entry.isIntersecting);
-  }).observe(heroActions);
-
-  // Reviews carousel. The cards are cloned once, so the row can slide past
-  // the last review and then jump back to the identical start unnoticed.
-  const reviewList = document.getElementById("reviews");
-  const reviewCount = reviewList.children.length;
-  [...reviewList.children].forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    clone.inert = true;
-    reviewList.append(clone);
-  });
-  let reviewIndex = 0;
-  let reviewBusy = false;
-
-  function placeReviews(index, animate) {
-    reviewList.classList.toggle("is-instant", !animate);
-    reviewList.style.setProperty("--i", index);
-    reviewIndex = index;
+  const intro = heroActions.closest(".industry-intro");
+  let actionsInView = true;
+  function syncDock() {
+    const hideDock = actionsInView && !intro.inert;
+    dock.toggleAttribute("data-away", hideDock);
+    dock.inert = hideDock;
   }
-
-  document.querySelectorAll(".carousel__btn").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (reviewBusy) return;
-      reviewBusy = true;
-      const step = Number(button.dataset.step);
-      if (step < 0 && reviewIndex === 0) {
-        placeReviews(reviewCount, false);
-        void reviewList.offsetWidth; // apply the jump before animating from it
-      }
-      placeReviews(reviewIndex + step, true);
-      setTimeout(() => {
-        if (reviewIndex >= reviewCount) placeReviews(reviewIndex - reviewCount, false);
-        reviewBusy = false;
-      }, 420);
-    });
-  });
+  syncDock();
+  new IntersectionObserver(([entry]) => {
+    actionsInView = entry.isIntersecting;
+    syncDock();
+  }).observe(heroActions);
+  new MutationObserver(syncDock).observe(intro, { attributes: true, attributeFilter: ["inert"] });
 
   // Telegram links like "Запросить реквизиты" carry their own pre-filled text.
   document.querySelectorAll("[data-tg-text]").forEach((link) => {

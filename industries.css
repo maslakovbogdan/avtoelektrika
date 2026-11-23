@@ -1,0 +1,207 @@
+#industry-scene {
+  position: relative;
+  color: #eff5fa;
+  background: #101b2c;
+}
+.industry-viewport {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 76% 45%, #2c4054 0, transparent 54%),
+    #111d2e;
+}
+.industry-intro {
+  position: relative;
+  padding: clamp(44px, 8vh, 108px) max(5vw, calc((100% - 1160px) / 2));
+}
+.industry-copy { position: relative; z-index: 1; }
+.industry-copy h1 {
+  font-size: clamp(2.4rem, 4.65vw, 5.3rem);
+  line-height: 1.02;
+  font-weight: 750;
+  letter-spacing: -.05em;
+  max-width: 15ch;
+}
+.industry-lead {
+  max-width: 39ch;
+  margin-top: 20px;
+  color: #c3ceda;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+.industry-copy .actions { margin-top: 28px; gap: 8px; }
+.industry-copy .btn--line { border-color: #44566d; }
+.industry-deck { display: flex; position: relative; min-height: 100svh; }
+.industry-card {
+  --tile: clamp(104px, 15vw, 240px);
+  --drag-x: 0px;
+  --drag-y: 0px;
+  --tilt: 0deg;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 33.333333%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--field);
+  appearance: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y pinch-zoom;
+  -webkit-tap-highlight-color: transparent;
+}
+.industry-mining { --field: #eb690b; --ink: #142638; --offset: -1; --angle: -12deg; --delay: 0s; --end-x: 16.666667%; }
+.industry-forestry { --field: #174638; --ink: #c7e4b0; --offset: 0; --angle: -3deg; --delay: .09s; --end-x: 50%; }
+.industry-roads { --field: #193f65; --ink: #c6e5ff; --offset: 1; --angle: 8deg; --delay: .18s; --end-x: 83.333333%; }
+.industry-emblem {
+  width: min(60%, 250px);
+  display: block;
+  transform: translate(var(--drag-x), var(--drag-y)) rotate(var(--tilt)) scale(var(--press-scale, 1));
+  transition: transform .42s cubic-bezier(.16,1.35,.35,1);
+  pointer-events: none;
+}
+.industry-emblem img { width: 100%; height: auto; }
+.industry-card.is-pressed { cursor: grabbing; --press-scale: .94; }
+.industry-card.is-pressed .industry-emblem { transition-duration: .1s; }
+.industry-label {
+  position: absolute;
+  inset: auto 5% 13%;
+  display: block;
+  text-align: center;
+  font-size: clamp(1rem, 2.45vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.14;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.industry-card:focus-visible { z-index: 2; outline: 3px solid currentColor; outline-offset: -6px; }
+.industry-anchor { position: absolute; bottom: 100svh; left: 0; width: 1px; height: 1px; }
+.specialty { padding: 14px 18px; border-left: 3px solid #883f2f; background: #e7ebef; }
+.specialty strong { display: block; color: var(--navy); }
+
+/* Each word clears its own baseline as the coloured cards settle into a fan. */
+.title-mask { display: inline-block; vertical-align: bottom; overflow: clip; padding-bottom: .12em; margin-bottom: -.12em; }
+.title-mask > span { display: block; }
+@keyframes reveal-word { from { transform: translateY(115%) rotate(2deg); } }
+@keyframes settle-card {
+  from { opacity: 0; translate: 0 42px; rotate: -7deg; }
+}
+@keyframes enter-copy { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: no-preference) {
+  .title-mask > span { animation: reveal-word .8s cubic-bezier(.16,1,.3,1) both; }
+  .title-mask:nth-child(2) > span { animation-delay: .055s; }
+  .title-mask:nth-child(3) > span { animation-delay: .11s; }
+  .title-mask:nth-child(4) > span { animation-delay: .15s; }
+  .title-mask:nth-child(5) > span { animation-delay: .19s; }
+  .industry-lead, .industry-copy .actions { animation: enter-copy .65s .18s ease-out backwards; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-height: 600px) {
+  .industry-ready #industry-scene { height: 240svh; }
+  .industry-ready .industry-viewport {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    --p: var(--industry-progress, 0);
+    --rest: calc(1 - var(--p));
+    --hub-x: 74%;
+    --hub-y: 44%;
+    --spread: min(11.25vw, 180px);
+    --rise: min(3svh, 30px);
+  }
+  .industry-ready .industry-intro {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-items: center;
+    padding-block: 0 7svh;
+    opacity: clamp(0, calc(1 - 2.5 * var(--p)), 1);
+  }
+  .industry-ready .industry-copy { width: 52%; }
+  .industry-ready .industry-deck {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .industry-ready .industry-card {
+    --start-x: calc(var(--hub-x) + var(--offset) * var(--spread));
+    --start-y: calc(var(--hub-y) + var(--offset) * var(--rise));
+    position: absolute;
+    left: calc(var(--rest) * var(--start-x) + var(--p) * var(--end-x));
+    top: calc(var(--rest) * var(--start-y) + var(--p) * 50%);
+    width: calc(var(--rest) * var(--tile) + var(--p) * 33.333334%);
+    height: calc(var(--rest) * var(--tile) * 1.32 + var(--p) * 100%);
+    border-radius: calc(var(--rest) * 14px);
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) * var(--rest)));
+    background: transparent;
+    isolation: isolate;
+    pointer-events: auto;
+    animation: settle-card .9s cubic-bezier(.18,.84,.28,1) var(--delay) backwards;
+    --lift: 0px;
+  }
+  /* Move the face within a stable hit area so crossing a shared edge doesn't flicker. */
+  .industry-ready .industry-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--field);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / .17), 0 calc(10px * var(--rest)) calc(32px * var(--rest)) rgb(4 13 22 / .24);
+    pointer-events: none;
+  }
+  .industry-ready .industry-card::before,
+  .industry-ready .industry-emblem {
+    translate: calc(var(--drag-x) * var(--rest) * .35) calc((var(--drag-y) * .35 - var(--lift)) * var(--rest));
+    transition: translate .4s cubic-bezier(.22,.75,.22,1), transform .36s cubic-bezier(.22,.75,.22,1);
+  }
+  @media (hover: hover) {
+    .industry-ready .industry-card:hover { --lift: 6px; }
+  }
+  .industry-ready .industry-card.is-pressed { --lift: 3px; }
+  .industry-ready .industry-card.is-pressed .industry-emblem { transition-duration: .15s; }
+  .industry-ready .industry-label { opacity: clamp(0, calc((var(--p) - .65) * 3), 1); bottom: max(13%, 75px); }
+  .industry-ready .industry-anchor { top: 126svh; bottom: auto; }
+  @media (max-width: 760px) {
+    .industry-ready .industry-viewport {
+      --hub-x: 50%;
+      --hub-y: 70%;
+      --spread: min(20vw, 140px);
+      --rise: 1.2svh;
+    }
+    .industry-ready .industry-intro { display: block; padding: 4svh 6vw 0; }
+    .industry-ready .industry-copy { width: 100%; }
+    .industry-ready .industry-card { --tile: clamp(70px, 23vw, 126px); }
+  }
+}
+
+@media (max-width: 760px) {
+  .industry-label { inset-inline: 3%; font-size: clamp(.85rem, 3.3vw, 1.25rem); }
+  .industry-copy h1 { font-size: clamp(2rem, 7.5vw, 3.3rem); max-width: 17ch; }
+  .industry-lead { margin-top: 14px; font-size: .95rem; max-width: 42ch; }
+  .industry-copy .actions { margin-top: 18px; gap: 6px; }
+  .industry-copy .btn { min-height: 42px; padding-inline: .7em; font-size: .86rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .industry-emblem { transition: none; transform: none; }
+  .industry-card:is(:active, .is-pressed) { box-shadow: inset 0 0 0 3px currentColor; }
+}
+@media (max-width: 760px) {
+  .industry-copy .actions .btn { flex: 0 1 auto; }
+}
+@media (max-width: 400px) {
+  .industry-copy .actions { gap: 5px; }
+  .industry-copy .btn { padding-inline: .55em; gap: .35em; }
+  .industry-copy .btn--line .ico { display: none; }
+}
+@media (min-width: 761px) and (max-height: 680px) {
+  .industry-ready .industry-intro { padding-bottom: 13svh; }
+  .industry-copy .actions { margin-top: 16px; }
+}
+@media (max-width: 374px) and (max-height: 660px) {
+  .industry-ready .industry-viewport { --hub-y: 72%; --rise: 1svh; }
+}
